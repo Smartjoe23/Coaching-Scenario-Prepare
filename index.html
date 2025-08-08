@@ -1,45 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Avatar – GROW Role Play</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Heygen Avatar – Fixed</title>
 <style>
-  html,body {height:100%; margin:0}
-  body {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABkAAAAOECAMAAADOkw2QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAIQUExURfHs6bjF23mZzGKJxnaXy6O21uTj5tjb46G11u/r6b/K3aa419PY4uzp6LXD28LM3ufl587U4JKr0myQyYejz7fE2+nm59DV4VWAwxxZtSVft4ql0O7q6HiZzLC/2Ymk0CpjuB5atUR1v42n0dvd5LDA2SZguIOgztfa48bO3ytkuVyFxR9btpGp0mmOyDdsvMbO3nGUyliDxJCq0pyy1Nba4jRpu+Dh5evn6E58wSNety1ludzd5DJouleBw0R0v4Whz1+HxUZ2vyliuHubzGeNx2qPyDltvN3e5FF+wiFdtpyx1IWiz4+p0cHL3ZSs0nqZzOLi5jpuvc7U4bzH3FN/wpeu02yRybTC2kd3wEFyvmyQyGGIxihhuK6+2cTN3k57wniYy7zI3N3f5DhtvH2czdrc5K++2ViCxC5muuXk5jVru9/g5W6SyZqw1NPX4kV1v6G11WaMx8vS4G6RydXZ4n6dzdLW4aW31pmw012GxbXD2i9muTxvvai611aBwzVqu6q718nR3z9xvZmv01N/w73I3czT4L7J3dba42+Typmv1IOhzpat056z1VB9wbnF29rc49LX4q292Zeu1DBnuqu82D1wvbrG3Iym0GuPyGWMx7PC2qq72EJ0vkJ0v4KfzmWLx057weLi5aC01kl4wMnQ39HW4WCIxpSs08jQ33uazHmazD9yvj9xvs3T4BQOxRYAAAAJcEhZcwAAJOgAACToAYJjBRwAAAoiSURBVHhe7d35exXVGQfw0QS4iSDohdBDoxZp1SJK7YIpiAsomtTaRcRdu2iRWGqt2M0F97p0caut3Tdbu+m/6POemTv3zCXk53uf5/P5JXPedybJT/N95pxZqgoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIlwxplTU9Nr1o6Wq3W9Xm/NzEhxttfrnTUoro9B0dzQy87euKkoFs45d7rf37xlrlvdVB81MNvtAjCmtn4sZds+Pj/SOS/K548U+1G8oBn0UkqfKJpr61+V0vYLd3yyqNc+dWHTvejiTlpdMjiqPvTTZQ+AcbV1Z3vqnup2Nl0UxUu7xTpAdjVXCacNkAiky7qBNHd50dz9maLTDZArig4A4+uzw1P357qdz+fi9i90qzlA0p4r82C1AElpqkyQhS92enuLiapOgOyrfzMAY+6q7Sml/WdcMnt1unykdU19Rr+2W60DJF2XBysGyJ4DB5swuL5o3ZArey/tH7oxb+1c17ZuWqwtRf1LxTEAjK/ZOGnfXFXV/JdHlrZvaVJgf3cmqgmQ9JUYrBggX62qr5319djadWvbOZwPui2nxpFtsX17cVx2R1TvHF20B2A8bYyz9l2nLnhX1d0ppXvuTSnd1ykPAmTp/lUCpKrmvxGb32w7V8dwqkmHb8Vlz/Zvt81s4QEr6AATZC5fDWx78DujjSv3ppSOxsTTQ516BMixOGj38moBUq2PCamH20aM9n13MDwe+31vMKptjpoVdICJcW5zQXFoON2UXZZSOrhwNK4KHinrESDffzQO+cGqAVIdiO3BtFiewZpu93sshifaYXg8AssKOsDkmJmuEyQtdZavZ2IR40S1EHNYPywbOUCq2+tLiNUC5FBs/6hp/DgGP2n3m49h98rmp1Gygg4wSY7e1UTIo0XxiSgcrqoTKaUnNxSNOkCWn4pbqm5dLUCuKAPk6RUC5GQ7jIcMo3LACjrAZNlyMgfIvuVh6bqU0jMzVbUlGs8W+9YBUj0XM07Pv7BKgLwY24NXmrwUg+EU1s9i2G+HVTWXV9A3FhUAJsKW/OjGy+14XdwndWxxcTE//rdY7NkESHUkGvtPHyCvnLqIfqxdRH819nttMKqq6udROF4UABh384fzj1/EGfyXbfXafEnSKhbYBwGSr1HCygGy8KvYHL2Ntxm8nm/jfaNtVm9Gvuy0gg4wSV7d9Vb8eDtO8GsGxQ2/LtIjpXTecP82QNburnsrBsg7v4mtpTfbzm/zvifjQcL5d/Mj578rjstTaC8UBQDG3cUppd//4ZE/5sQ4Z1B9J0Z/ql8wEvdhHRy+nr0NkGp218oBsmfxz/nhkpT+UrSmcmXpof5f63DaWVyA5D+XHt5da/8LAMbXhnyl0PhbW74tzvV/r7fPjNY/2tYwQKod+ahTAqR1Q3lT1dx7nd7eW4atTXs6rX8WRwEwrh5vJqLimmBwz231rxi+3wzyO7Heaw8oAmQmzzydLkC2/bt7U+7y+0Xzgf8Unf8WDQECMCmWj8cNuXGr1fq29r8YD74kNZMj5rlBrwiQ6qaYjVo5QP6/+dT3az39QdPct6P8YuGHeUlkSIAATIi1a27u998t32J4X3xZtn168KUYtfdhxSdt268UPrbyJ21fny2eKCltPfJgf3rHbPf9vvd3v2jba6bOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAm30es5d11exPoxQAAAABJRU5ErkJggg==') no-repeat center center fixed;
+  body{
+    margin:0;
+    background: url('baground.png') no-repeat center center fixed;
     background-size: cover;
+    min-height:100vh;
   }
-  .wrap {
-    position: fixed; inset: 0;
-    display:flex; align-items:center; justify-content:center;
-    backdrop-filter: none;
+  /* Аватар фикс размера (прямоугольник) */
+  #heygen-streaming-embed{
+    z-index:9999;
+    position:fixed;
+    left:40px; bottom:40px;
+    width:360px; height:640px;
+    border-radius:12px;
+    border:0;
+    box-shadow:0 8px 24px rgba(0,0,0,.12);
+    overflow:hidden;
+    opacity:0; visibility:hidden;
   }
-  /* Responsive 16:9 frame with max size */
-  .frame {
-    width: min(96vw, 1280px);
-    aspect-ratio: 16/9;
-    max-height: 96vh;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    background: transparent;
-  }
-  iframe { width:100%; height:100%; border:0; display:block; background: transparent; }
-  @media (max-aspect-ratio: 16/9) {
-    .frame { height: 96vh; width: auto; aspect-ratio: auto; }
-  }
+  #heygen-streaming-embed.show{ opacity:1; visibility:visible; }
+  #heygen-streaming-embed.expand{ /* убираем авто-расширение */ }
+  #heygen-streaming-container{ width:100%; height:100%; }
+  #heygen-streaming-container iframe{ width:100%; height:100%; border:0; }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="frame">
-      <iframe
-        src="https://labs.heygen.com/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJHcmFoYW1fUHJvZmVzc2lvbmFsTG9va19wdWJsaWMiLCJwcmV2aWV3SW1nIjoiaHR0cHM6Ly9maWxlczIuaGV5Z2VuLmFpL2F2YXRhci92My82NDhkOTY1ZDk3Yjk0MDlmOTAxYjNkNjE5NjI3NmZiNV81NTg1MC9wcmV2aWV3X3RhcmdldC53ZWJwIiwibmVlZFJlbW92ZUJhY2tncm91bmQiOnRydWUsImtub3dsZWRnZUJhc2VJZCI6IjZkMzdjMzJmNWNjMTQ2OGU4Mjc5N2ZiMzJhZTBiZTFlIiwidXNlcm5hbWUiOiJjZTQ1OTZmMmMyYmM0ZGI2YmEyOTIwMGJlZTEyOWE3YSJ9&inIFrame=1"
-        allow="microphone"
-        title="HeyGen Avatar">
-      </iframe>
-    </div>
-  </div>
+
+<script>
+!function(window){
+  const host="https://labs.heygen.com";
+  const url=host+"/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJHcmFoYW1fUHJvZmVzc2lvbmFsTG9va19w%0D%0AdWJsaWMiLCJwcmV2aWV3SW1nIjoiaHR0cHM6Ly9maWxlczIuaGV5Z2VuLmFpL2F2YXRhci92My82%0D%0ANDhkOTY1ZDk3Yjk0MDlmOTAxYjNkNjE5NjI3NmZiNV81NTg1MC9wcmV2aWV3X3RhcmdldC53ZWJw%0D%0AIiwibmVlZFJlbW92ZUJhY2tncm91bmQiOnRydWUsImtub3dsZWRnZUJhc2VJZCI6IjZkMzdjMzJm%0D%0ANWNjMTQ2OGU4Mjc5N2ZiMzJhZTBiZTFlIiwidXNlcm5hbWUiOiJjZTQ1OTZmMmMyYmM0ZGI2YmEy%0D%0AOTIwMGJlZTEyOWE3YSJ9&inIFrame=1";
+
+  const wrapDiv=document.createElement("div");
+  wrapDiv.id="heygen-streaming-embed";
+
+  const container=document.createElement("div");
+  container.id="heygen-streaming-container";
+
+  const iframe=document.createElement("iframe");
+  iframe.allowFullscreen=false;
+  iframe.title="Streaming Embed";
+  iframe.role="dialog";
+  iframe.allow="microphone";
+  iframe.src=url;
+
+  window.addEventListener("message",(e)=>{
+    if(e.origin!==host || !e.data || e.data.type!=="streaming-embed") return;
+    if(e.data.action==="init"){
+      wrapDiv.classList.add("show");   // показываем
+    }
+    // Игнорируем "show"/"hide" изменения размера
+  });
+
+  container.appendChild(iframe);
+  wrapDiv.appendChild(container);
+  document.body.appendChild(wrapDiv);
+}(globalThis);
+</script>
+
 </body>
 </html>
