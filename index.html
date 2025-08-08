@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Coaching Scenario – Prepare | GROW Role Play</title>
+
+<style>
+  /* Fullscreen brand background */
+  body{
+    margin:0;min-height:100vh;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABkAAAAOECAMAAADOkw2QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAIQUExURfHs6bjF23mZzGKJxnaXy6O21uTj5tjb46G11u/r6b/K3aa419PY4uzp6LXD28LM3ufl5...') no-repeat center center fixed;
+    background-size: cover;
+    display:flex;align-items:center;justify-content:center;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  /* Center card */
+  .card{
+    width:min(960px, 92vw);
+    backdrop-filter: blur(6px);
+    background: rgba(255,255,255,0.86);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    padding: clamp(16px, 3vw, 28px);
+  }
+  h1{font-size:clamp(20px, 3.2vw, 28px); margin:0 0 6px;}
+  .lead{margin:0 0 16px; font-size:clamp(14px,2.2vw,16px); color:#334;}
+  .grid{
+    display:grid; gap:10px;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+  .block{
+    background:#fff; border:1px solid #e8edf3; border-radius:12px; padding:14px;
+  }
+  .block h3{margin:0 0 8px; font-size:16px}
+  ul{margin:0; padding-left:18px}
+  .cta{
+    display:flex; gap:12px; align-items:center; justify-content:flex-start;
+    margin-top:14px; flex-wrap:wrap;
+  }
+  .btn{
+    padding:12px 20px; font-weight:700; font-size:16px;
+    background:#005eb8; color:#fff; border:0; border-radius:10px; cursor:pointer;
+    box-shadow:0 6px 16px rgba(0,94,184,.35);
+  }
+  .btn:hover{background:#004a91}
+  .ghost{
+    background:transparent; color:#005eb8; border:2px solid #005eb8;
+  }
+  details{margin-top:10px}
+  summary{cursor:pointer; font-weight:600}
+
+  @media (max-width:720px){
+    .grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <h1 id="title">Coaching Scenario – Prepare</h1>
+    <p class="lead">
+      You have studied the <b>GROW model</b> — now it’s time to test yourself in practice.
+      Step into the role of the <b>coach</b> and lead a real-time conversation with a
+      Medical Representative (played by the avatar).
+    </p>
+
+    <div class="grid">
+      <section class="block" aria-labelledby="howto">
+        <h3 id="howto">How to work with this scenario</h3>
+        <ol>
+          <li>Read <b>Coach brief</b> and <b>Coachee brief</b> above on the SharePoint page.</li>
+          <li>Click <b>Start Role Play</b> to launch the avatar (Medical Representative).</li>
+          <li>Lead the conversation using <b>GROW</b>:
+            <ul>
+              <li><b>G — Goal:</b> define the rep’s objective in visit preparation.</li>
+              <li><b>R — Reality:</b> explore current approach, tools and blockers.</li>
+              <li><b>O — Options:</b> generate possible improvements together.</li>
+              <li><b>W — Will:</b> agree on a concrete action plan (steps, timing, check).</li>
+            </ul>
+          </li>
+          <li>Keep the structure; the avatar may gently guide you back to GROW if needed.</li>
+          <li>Use active listening: follow-ups, summaries, clarifications.</li>
+        </ol>
+        <details>
+          <summary>Reflection (2–3 min after the session)</summary>
+          <ul>
+            <li>What worked well in your questioning?</li>
+            <li>Where did you drift from GROW? How to tighten it next time?</li>
+            <li>What will you change in your next coaching conversation?</li>
+          </ul>
+        </details>
+        <div class="cta">
+          <button class="btn" onclick="openAvatar()" aria-label="Start Role Play with avatar">Start Role Play</button>
+          <button class="btn ghost" onclick="copyLink()" aria-label="Copy avatar link">Copy link</button>
+        </div>
+      </section>
+
+      <section class="block" aria-labelledby="tips">
+        <h3 id="tips">Quick tips for impact</h3>
+        <ul>
+          <li>Ask one powerful question at a time; leave space for thinking.</li>
+          <li>Paraphrase to confirm understanding; avoid advice before <i>O</i>.</li>
+          <li>End with a <b>clear commitment</b>: who, what, by when, how measured.</li>
+        </ul>
+        <details>
+          <summary>Sample openers</summary>
+          <ul>
+            <li>“What would success look like in your preparation over the next 8 weeks?”</li>
+            <li>“Walk me through how you currently plan visits — step by step.”</li>
+            <li>“What options feel realistic for you to try next week?”</li>
+          </ul>
+        </details>
+      </section>
+    </div>
+  </main>
+
+<script>
+  const HEYGEN_URL =
+    'https://labs.heygen.com/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJHcmFoYW1fUHJvZmVzc2lvbmFsTG9va19wdWJsaWMiLCJwcmV2aWV3SW1nIjoiaHR0cHM6Ly9maWxlczIuaGV5Z2VuLmFpL2F2YXRhci92My82NDhkOTY1ZDk3Yjk0MDlmOTAxYjNkNjE5NjI3NmZiNV81NTg1MC9wcmV2aWV3X3RhcmdldC53ZWJwIiwibmVlZFJlbW92ZUJhY2tncm91bmQiOnRydWUsImtub3dsZWRnZUJhc2VJZCI6IjZkMzdjMzJmNWNjMTQ2OGU4Mjc5N2ZiMzJhZTBiZTFlIiwidXNlcm5hbWUiOiJjZTQ1OTZmMmMyYmM0ZGI2YmEyOTIwMGJlZTEyOWE3YSJ9&inIFrame=1';
+
+  function openAvatar(){
+    // open in new tab for mic permissions
+    window.open(HEYGEN_URL, '_blank', 'noopener');
+  }
+  function copyLink(){
+    navigator.clipboard.writeText(HEYGEN_URL).then(()=>alert('Link copied'));
+  }
+</script>
+</body>
+</html>
