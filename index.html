@@ -3,74 +3,92 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Heygen Avatar – Fixed</title>
+<title>Heygen с фоном</title>
 <style>
   body{
     margin:0;
-    background: url('baground.png') no-repeat center center fixed;
+    background: url('https://i.imgur.com/llDOCpo.png') no-repeat center center fixed;
     background-size: cover;
-    min-height:100vh;
   }
-  /* Фиксированные размеры аватара */
-  #heygen-streaming-embed{
-    z-index:9999;
-    position:fixed;
-    left:40px; bottom:40px;
-    width:360px !important;
-    height:640px !important;
-    border-radius:12px !important;
-    border:0 !important;
-    box-shadow:0 8px 24px rgba(0,0,0,.12) !important;
-    overflow:hidden !important;
-    opacity:0;
-    visibility:hidden;
-  }
-  #heygen-streaming-embed.show{
-    opacity:1;
-    visibility:visible;
-  }
-  /* Перебиваем expand из скрипта Heygen */
-  #heygen-streaming-embed.expand{
-    width:360px !important;
-    height:640px !important;
-    left:40px !important;
-    transform:none !important;
-    border-radius:12px !important;
-    border:0 !important;
-  }
-  #heygen-streaming-container{ width:100%; height:100%; }
-  #heygen-streaming-container iframe{ width:100%; height:100%; border:0; }
 </style>
 </head>
 <body>
 
 <script>
 !function(window){
-  const host="https://labs.heygen.com";
-  const url=host+"/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJHcmFoYW1fUHJvZmVzc2lvbmFsTG9va19w%0D%0AdWJsaWMiLCJwcmV2aWV3SW1nIjoiaHR0cHM6Ly9maWxlczIuaGV5Z2VuLmFpL2F2YXRhci92My82%0D%0ANDhkOTY1ZDk3Yjk0MDlmOTAxYjNkNjE5NjI3NmZiNV81NTg1MC9wcmV2aWV3X3RhcmdldC53ZWJw%0D%0AIiwibmVlZFJlbW92ZUJhY2tncm91bmQiOnRydWUsImtub3dsZWRnZUJhc2VJZCI6IjZkMzdjMzJm%0D%0ANWNjMTQ2OGU4Mjc5N2ZiMzJhZTBiZTFlIiwidXNlcm5hbWUiOiJjZTQ1OTZmMmMyYmM0ZGI2YmEy%0D%0AOTIwMGJlZTEyOWE3YSJ9&inIFrame=1";
-
-  const wrapDiv=document.createElement("div");
+  const host="https://labs.heygen.com",
+  url=host+"/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJHcmFoYW1fUHJvZmVzc2lvbmFsTG9va19w%0D%0AdWJsaWMiLCJwcmV2aWV3SW1nIjoiaHR0cHM6Ly9maWxlczIuaGV5Z2VuLmFpL2F2YXRhci92My82%0D%0ANDhkOTY1ZDk3Yjk0MDlmOTAxYjNkNjE5NjI3NmZiNV81NTg1MC9wcmV2aWV3X3RhcmdldC53ZWJw%0D%0AIiwibmVlZFJlbW92ZUJhY2tncm91bmQiOnRydWUsImtub3dsZWRnZUJhc2VJZCI6IjZkMzdjMzJm%0D%0ANWNjMTQ2OGU4Mjc5N2ZiMzJhZTBiZTFlIiwidXNlcm5hbWUiOiJjZTQ1OTZmMmMyYmM0ZGI2YmEy%0D%0AOTIwMGJlZTEyOWE3YSJ9&inIFrame=1",
+  clientWidth=document.body.clientWidth,
+  wrapDiv=document.createElement("div");
   wrapDiv.id="heygen-streaming-embed";
 
   const container=document.createElement("div");
   container.id="heygen-streaming-container";
 
+  const stylesheet=document.createElement("style");
+  stylesheet.innerHTML=`
+    #heygen-streaming-embed {
+      z-index: 9999;
+      position: fixed;
+      left: 40px;
+      bottom: 40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.12);
+      transition: all linear 0.1s;
+      overflow: hidden;
+
+      opacity: 0;
+      visibility: hidden;
+    }
+    #heygen-streaming-embed.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #heygen-streaming-embed.expand {
+      ${clientWidth<540
+        ? "height: 266px; width: 96%; left: 50%; transform: translateX(-50%);"
+        : "height: 366px; width: calc(366px * 16 / 9);"}
+      border: 0;
+      border-radius: 8px;
+    }
+    #heygen-streaming-container {
+      width: 100%;
+      height: 100%;
+    }
+    #heygen-streaming-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  `;
+
   const iframe=document.createElement("iframe");
-  iframe.allowFullscreen=false;
+  iframe.allowFullscreen=!1;
   iframe.title="Streaming Embed";
   iframe.role="dialog";
   iframe.allow="microphone";
   iframe.src=url;
 
-  window.addEventListener("message",(e)=>{
-    if(e.origin!==host || !e.data || e.data.type!=="streaming-embed") return;
-    if(e.data.action==="init"){
-      wrapDiv.classList.add("show");
-    }
-    // Никаких resize не делаем
-  });
+  let visible=!1,initial=!1;
+  window.addEventListener("message",(e=>{
+    e.origin===host &&
+    e.data &&
+    e.data.type &&
+    "streaming-embed"===e.data.type &&
+    ("init"===e.data.action
+      ? (initial=!0,wrapDiv.classList.toggle("show",initial))
+      : "show"===e.data.action
+      ? (visible=!0,wrapDiv.classList.toggle("expand",visible))
+      : "hide"===e.data.action &&
+        (visible=!1,wrapDiv.classList.toggle("expand",visible))
+    )
+  }));
 
   container.appendChild(iframe);
+  wrapDiv.appendChild(stylesheet);
   wrapDiv.appendChild(container);
   document.body.appendChild(wrapDiv);
 }(globalThis);
